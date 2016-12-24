@@ -1,0 +1,48 @@
+#app {
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #4d4d4d;
+}
+
+#page {
+  min-width: 500px;
+  max-width: 850px;
+  margin:0 auto;
+}
+
+a.active {
+  color: orange;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+
+.glyphicon-lg
+{
+  font-size:4em
+}
+.info-block
+{
+  border:1px solid #D3D3D3;
+  margin-bottom:25px;
+  cursor:pointer;
+}
+
+.info-block:hover{
+  background: #f9f9f9; /* make this whatever you want */
+}
+
+.info-block .square-box
+{
+  width:100px;min-height:110px;margin-right:22px;text-align:center!important;background-color:#676767;padding:20px 0
+}
+
+.info-block.block-info .square-box
+{
+  background-color:#D3D3D3;color:#FFF
+}
+
+.tile{
+  border: 2px solid black
+}
