@@ -11,3 +11,18 @@ Running the project with `npm start` will automatically lint the code and the re
 
 
 The are a few readmes in the directories that might help understanding.
+
+# Prerequisite
+
+## Node
+See version in `.node-version` file
+
+## Deployment to firebase
+
+Insure that you have the firebase tools installed
+
+     npm install -g firebase-tools
+
+To deploy
+
+    firebase deploy
