@@ -10,7 +10,7 @@ Also there are no tests. I always like learning through TDD so I apologise in ad
 
 1. Install dependencies ```npm install```
 2. List runnable operations ```npm run```
-3. To start the server in dev mode ```npm start```
+3. To start the server in dev mode ```npm run start```
 
 
 Running the project with `npm start` will automatically lint the code and the rerun the linting when any code changes are detected.
@@ -23,7 +23,16 @@ The are a few READMEs in the directories that might help understanding. Although
 ## Node
 See version in `.node-version` file
 
-## Deployment to firebase
+# Create distribution
+By running
+
+    npm run build
+
+a distributable set of files will be created under the dist folder.
+
+You can test this distribution locally be running
+    npm run start:dist
+# Deployment to firebase
 
 Change the values in `src/config.js` to your own values. 
 
