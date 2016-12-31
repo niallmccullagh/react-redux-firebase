@@ -1,4 +1,10 @@
-#  
+#  React/Redux/Firebase Authentication template
+
+A template to get an application up and running with react/redux with firebase authentication built in.
+
+Note: I've created this as part of the learning process of this stack. I'm not a seasoned user of react but love hacking things together when learning.
+
+Also there are no tests. I always like learning through TDD so I apologise in advance for there being no tests to learn from. :-(
 
 ## Running
 
@@ -19,8 +25,6 @@ See version in `.node-version` file
 
 ## Deployment to firebase
 
-*Note* 
-
 Change the values in `src/config.js` to your own values. 
 
 * Go into the Firebase console and click the "Auth" tab
@@ -34,4 +38,14 @@ Insure that you have the firebase tools installed
 
 To deploy
 
-    firebase deploy
+make sure that you have built the code by 
+```
+npm run build
+```
+
+then deploy 
+
+```
+firebase deploy
+```
+    
