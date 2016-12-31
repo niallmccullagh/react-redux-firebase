@@ -19,6 +19,15 @@ See version in `.node-version` file
 
 ## Deployment to firebase
 
+*Note* 
+
+Change the values in `src/config.js` to your own values. 
+
+* Go into the Firebase console and click the "Auth" tab
+* Click the "Web Setup" button and grab the data within the var config object. Paste it in the `const config = {}` in the `src/config.js` file.
+* Click the Sign-In Method horizontal tab
+* Enable the Email/Password sign-in provider
+
 Insure that you have the firebase tools installed
 
      npm install -g firebase-tools
