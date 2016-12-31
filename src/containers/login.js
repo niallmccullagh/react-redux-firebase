@@ -25,6 +25,13 @@ class Login extends React.Component {
     this.props.signInUser(creds, '/about');
   }
 
+  renderAuthenticationError() {
+    if (this.props.authenticationError) {
+      return <div className="alert alert-danger">{ this.props.authenticationError }</div>;
+    }
+    return <div></div>;
+  }
+
   renderField = ({ input, label, type, meta: { touched, error } }) => (
     <fieldset className={`form-group ${touched && error ? 'has-error' : ''}`}>
       <label className="control-label">{label}</label>
@@ -40,6 +47,9 @@ class Login extends React.Component {
       <div className="container">
         <div className="col-md-6 col-md-offset-3">
           <h2 className="text-center">Log In</h2>
+
+          { this.renderAuthenticationError() }
+
           <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>
             <Field name="email"
               component={this.renderField}
@@ -60,7 +70,13 @@ class Login extends React.Component {
   }
 }
 
-export default connect(null, Actions)(reduxForm({
+function mapStateToProps(state) {
+  return {
+    authenticationError: state.authentication.error
+  }
+}
+
+export default connect(mapStateToProps, Actions)(reduxForm({
   form: 'login',
   validate
 })(Login));

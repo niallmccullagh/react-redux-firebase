@@ -20,15 +20,16 @@ class Header extends React.Component {
   }
 
   render() {
-    const { loggedInUser } = this.props;
-    const isLoggedIn = this.props.loggedInUser && this.props.loggedInUser.id !== undefined;
+    const { authentication } = this.props;
+    const isLoggedIn = authentication && authentication.isAuthenticated;
     const { currentPath } = this.props;
 
     if(isLoggedIn) {
+      const displayName = (authentication.user) ? authentication.user.email : "";
       return (
         <Authenticated
           currentPath={currentPath}
-          loggedInUser={loggedInUser}
+          displayName={displayName}
           onClickLogout={this.logoutUser}
         />
       );
@@ -42,15 +43,15 @@ class Header extends React.Component {
 
 Header.propTypes = {
   actions: PropTypes.object.isRequired,
-  loggedInUser: PropTypes.object,
+  authentication: PropTypes.object,
   currentPath: PropTypes.string.isRequired
 };
 
 function mapStateToProps(state) {
-  const loggedInUser = state.loggedInUser;
+  const authentication = state.authentication;
 
   return {
-    loggedInUser
+    authentication
   };
 }
 

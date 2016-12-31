@@ -1,23 +1,17 @@
-# Building the app
-* Create Page
-* Create route
+# Navigating the app
 
-## The redux bit
-* Create the actions (see actions readme)
-* Create the reducers (see reducers readme)
-* Create the store (see store readme)
-* Inject the store into react at the root (see store readme)
-* Connect redux to Page (see below)
+This is a walkthrough of how the application hangs together, which should help understand the flow so that you can add/change things.
 
-## Components vs Containers
+## App entry point
 
-In Redux, a container is a "smart" React component that's hooked directly into the store, while components refer to "dumb" React components that are unaware of Redux. 
+The app starts at index.js as the top level component. In this application we are using reacts router to determine which component should be rendered.
 
-## Pages
+## Routing
+The routes.js file holds the configuration of which components is rendered for what route. The components are imported and then assigned a route. The code for the component is in the file noted by the path of the import.
 
-A page a component that is linked to a route.
+## Components
 
-They declare and export a class that extends `React.Component` which has a render method that return JSX.
+Component declare and export a class that extends `React.Component` which has a render method that returns JSX.
 
 React components can be passed properties that can be used either as logic or displayed in a component.
 
@@ -33,18 +27,22 @@ React components can be passed properties that can be used either as logic or di
 
 Components can contain other components and props can be passed down to them as well.
 
-##  Connecting redux to Page
+See [Components](./components/README.md) for more info.
 
-`mapStateToProps` function maps anything from the redux store state into the props to be used in the presentation.
+### Components vs Containers
 
-function mapStateToProps(state, ownProps) {
-  return {
-    inventory: state.inventory
-  };
-}
+A container is a react component that deals with state.
 
-`mapDispatchToProps` function maps dispatch methods into the props to be used in the presentation.
+In this app our containers are wired to redux to help us manage state, while components refer to "dumb" React components that are unaware of Redux. 
 
-The methods create a action and uses the store to dispatch them. The reducers will then process the action, updating the store which will re-render the component.
+See [Containers](./containers/README.md) for more info.
 
-the `connect` function wraps the presentational component in a container component. It merges the props using mapStateToProps and mapDispatchToProps and its own props passing them to the wrapped presentational component.
+## The redux bit
+Redux provides applications with a predictable application state. It has a number of traits:
+
+* There is only one [store](./store/README.med) so it is easier to manage.
+* (Actions)[./actions/README.md] describe that something has happened. Actions are usually the result of the user doing something e.g. clicks a login button, the credentials are verified (in a function called an action creator) and action is dispatched to indicate success or failure.
+* (Reducers)[./actions/README.md] update the application state when an action occurs. Reducers are the only place state should be updated.
+
+A component can be connected to redux (thereby classifying the component as a container) to inject values from the redux state into the components props. Action creators can also be injected so that a component can trigger actions.
+Have a read through the [components](./components/README.md)] documentation for more info

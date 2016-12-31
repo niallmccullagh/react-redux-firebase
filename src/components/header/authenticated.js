@@ -8,7 +8,7 @@ import { IndexLinkContainer } from 'react-router-bootstrap';
 class HeaderLayout extends React.Component {
 
   render() {
-    const { loggedInUser } = this.props;
+    const { displayName } = this.props;
     const { onClickLogout } = this.props;
     const { currentPath } = this.props;
 
@@ -28,7 +28,7 @@ class HeaderLayout extends React.Component {
           </Nav>
 
           <Nav pullRight>
-            <NavDropdown eventKey={'User'} title={loggedInUser.name} id="basic-nav-dropdown">
+            <NavDropdown eventKey={'User'} title={displayName} id="basic-nav-dropdown">
               <MenuItem eventKey={'User:Logout'} onClick={onClickLogout}>Logout</MenuItem>
             </NavDropdown>
           </Nav>
@@ -39,7 +39,7 @@ class HeaderLayout extends React.Component {
 }
 
 HeaderLayout.propTypes = {
-  loggedInUser: PropTypes.object.isRequired,
+  displayName: PropTypes.string.isRequired,
   onClickLogout: PropTypes.func.isRequired,
   currentPath: PropTypes.string.isRequired,
 };

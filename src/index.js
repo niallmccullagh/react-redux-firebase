@@ -7,12 +7,14 @@ import 'babel-polyfill';
 import { render } from 'react-dom';
 import routes from './routes';
 import configureStore from './store/configureStore';
+import * as authenticationActions from './actions/authenticationActions';
 
 
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const store = configureStore();
+store.dispatch(authenticationActions.verifyAuth());
 
 render(
   <Provider store={store}>

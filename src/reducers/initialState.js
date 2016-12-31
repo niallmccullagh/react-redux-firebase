@@ -1,4 +1,8 @@
 export default {
   users: [],
-  loggedInUser: {},
+  authentication: {
+    isAuthenticated: false,
+    user: null,
+    error: null
+  },
 };

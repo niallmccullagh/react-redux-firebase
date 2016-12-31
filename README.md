@@ -10,7 +10,7 @@
 Running the project with `npm start` will automatically lint the code and the rerun the linting when any code changes are detected.
 
 
-The are a few readmes in the directories that might help understanding.
+The are a few READMEs in the directories that might help understanding. Although not intended as a learning resource in isolation they should help explain how react/redux hangs together. [Start here](./src/README.md)
 
 # Prerequisite
 

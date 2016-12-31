@@ -28,4 +28,7 @@ Action creators are exactly that—functions that create actions. It's easy to c
 
 For example, an action create can call an API to retrieve information, create an action and dispatch that action
 
+
+Action creators are usually triggered from events that happen in the browser. For example, the user clicked on a button or a component loads etc.
+
 Read about reducers next
