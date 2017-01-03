@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
+import Firebase from 'firebase';
 
 export default function(WrappedComponent) { // eslint-disable-line no-unused-vars
   class Auth extends React.Component {
@@ -16,6 +17,12 @@ export default function(WrappedComponent) { // eslint-disable-line no-unused-var
 
         if (!hasLocalStorageUser) {
           browserHistory.push('/login');
+        }else{
+          Firebase.auth().onAuthStateChanged(user => {
+            if (!user) {
+              browserHistory.push('/login');
+            }
+          });
         }
       }
     }
