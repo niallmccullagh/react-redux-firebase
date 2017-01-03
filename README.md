@@ -6,6 +6,9 @@ Note: I've created this as part of the learning process of this stack. I'm not a
 
 Also there are no tests. I always like learning through TDD so I apologise in advance for there being no tests to learn from. :-(
 
+Try it out -> https://react-redux-firebase-53388.firebaseapp.com/
+
+
 ## Running
 
 1. Install dependencies ```npm install```
