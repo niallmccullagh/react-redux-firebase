@@ -29,7 +29,7 @@ const validate = values => {
 
 class Signup extends React.Component {
   handleFormSubmit = (values) => {
-    this.props.signUpUser(values);
+    this.props.signUpUser(values, '/profile');
   };
 
   renderAuthenticationError() {

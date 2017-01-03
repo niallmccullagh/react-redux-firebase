@@ -5,4 +5,5 @@ export default {
     user: null,
     error: null
   },
+  profile: null,
 };

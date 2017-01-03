@@ -1,10 +1,6 @@
 import {browserHistory} from 'react-router';
 import Firebase from 'firebase';
 import * as types from './actionTypes';
-import {config} from '../config';
-
-
-Firebase.initializeApp(config);
 
 export function signOutUser() {
   return { type: types.SIGN_OUT_USER };

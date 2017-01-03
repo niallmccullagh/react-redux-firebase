@@ -29,6 +29,9 @@ class HeaderLayout extends React.Component {
 
           <Nav pullRight>
             <NavDropdown eventKey={'User'} title={displayName} id="basic-nav-dropdown">
+              <IndexLinkContainer to="/profile">
+                <NavItem eventKey={'/profile'}>Profile</NavItem>
+              </IndexLinkContainer>
               <MenuItem eventKey={'User:Logout'} onClick={onClickLogout}>Logout</MenuItem>
             </NavDropdown>
           </Nav>

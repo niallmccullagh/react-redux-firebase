@@ -7,12 +7,13 @@ import AboutPage from './components/about/aboutPage';
 import requireAuth from './containers/requireAuth';
 import Signup from './containers/signup';
 import Login from './containers/login';
-
+import Profile from './containers/profile'
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={AboutPage} />
     <Route path="about" component={requireAuth(AboutPage)} />
     <Route path="signup" component={Signup} />
     <Route path="login" component={Login} />
+    <Route path="profile" component={requireAuth(Profile)} />
   </Route>
 );

@@ -5,13 +5,16 @@ import { Provider } from 'react-redux';
 /*eslint-enable no-unused-vars*/
 import 'babel-polyfill';
 import { render } from 'react-dom';
+import Firebase from 'firebase';
+
 import routes from './routes';
 import configureStore from './store/configureStore';
 import * as authenticationActions from './actions/authenticationActions';
-
-
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import {config} from './config';
+
+Firebase.initializeApp(config);
 
 const store = configureStore();
 store.dispatch(authenticationActions.verifyAuth());

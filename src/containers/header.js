@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Authenticated from '../components/header/authenticated'; // eslint-disable-line no-unused-vars
 import Unauthenticated from '../components/header/unauthenticated'; // eslint-disable-line no-unused-vars
 import * as authenticationActions from '../actions/authenticationActions';
+import * as profileActions from '../actions/profileActions';
 
 class Header extends React.Component {
 
@@ -16,7 +17,12 @@ class Header extends React.Component {
 
   logoutUser(id) {
     event.preventDefault();
-    this.props.actions.logoutUser(id);
+    this.props.authenticationActions.logoutUser(id);
+  }
+
+
+  componentDidMount() {
+    this.props.profileActions.loadProfile();
   }
 
   render() {
@@ -57,7 +63,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(authenticationActions, dispatch)
+    authenticationActions: bindActionCreators(authenticationActions, dispatch),
+    profileActions: bindActionCreators(profileActions, dispatch),
+
   };
 }
 

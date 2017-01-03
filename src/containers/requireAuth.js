@@ -18,10 +18,11 @@ export default function(WrappedComponent) { // eslint-disable-line no-unused-var
         if (!hasLocalStorageUser) {
           browserHistory.push('/login');
         }else{
-          Firebase.auth().onAuthStateChanged(user => {
+          const unsubscribe = Firebase.auth().onAuthStateChanged(user => {
             if (!user) {
               browserHistory.push('/login');
             }
+            unsubscribe();
           });
         }
       }
